@@ -1,0 +1,20 @@
+version: '2'
+services:
+  db_admin:
+    container_name: mongo-admin
+    image: adicom/admin-mongo
+    volumes:
+      - './db-conf:/app/config'
+    depends_on:
+      - db_main
+    cpu_shares: 128
+    ports:
+      - 23500:1234
+  db_main:
+    image: mongo
+    container_name: mongo-db
+    volumes:
+      - './data:/data/db'
+    cpu_shares: 128
+    ports:
+      - 23018:27017
