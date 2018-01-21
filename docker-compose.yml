@@ -1,7 +1,7 @@
 version: '2'
 services:
   db_admin:
-    container_name: mongo-admin
+    container_name: configurator-mongo-admin
     image: adicom/admin-mongo
     volumes:
       - './db-conf:/app/config'
@@ -12,7 +12,7 @@ services:
       - 23500:1234
   db_main:
     image: mongo
-    container_name: mongo-db
+    container_name: configurator-mongo-db
     volumes:
       - './data:/data/db'
     cpu_shares: 128
